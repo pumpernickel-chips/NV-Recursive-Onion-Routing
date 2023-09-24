@@ -52,4 +52,9 @@ public class OnionRouter {
         }
         return flippedBooleans;
     }
+    public List<Integer> trim(List<Integer> intList){
+        intList.remove(intList.size()-1);
+        intList.remove(0);
+        return intList;
+    }
 }
