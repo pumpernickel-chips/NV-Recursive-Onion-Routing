@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OnionRouter {
-    private List<Boolean> boolArray = new ArrayList<Boolean>();
+    private List<Object> binaryList = new ArrayList<>();
+    private List<Boolean> boolList = new ArrayList<Boolean>();
+    private List<Integer> intList = new ArrayList<Integer>();
     private int input;
     public OnionRouter(){
         this.input = 0123456;
@@ -16,24 +18,38 @@ public class OnionRouter {
         return this.input;
     }
 
-    public List<Boolean> intToBoolToInt(List<Integer> intList) {
+    public List<Boolean> intToBool(List<Integer> intList) {
         for (int in: intList) {
             if (in == 1){
-                boolArray.add(true);
+                boolList.add(true);
             }else if(in == 0){
-                boolArray.add(false);
+                boolList.add(false);
+            }else{
+                System.out.println("Not Binary unit");
             }
         }
-        return boolArray;
+        return boolList;
+    }
+    public List<Integer> boolToInt(List<Boolean> boolList) {
+        for (Boolean bo: boolList) {
+            if (bo){
+                intList.add(1);
+            }else{
+                intList.add(0);
+            }
+        }
+        return intList;
     }
 
     public List<Boolean> flip(List<Boolean> boolList){
-        List<Boolean> flipBoolean = new ArrayList<>();
-        int i = 0;
+        List<Boolean> flippedBooleans = new ArrayList<>();
         for (Boolean b: boolList) {
-            i++;
+            if (b){
+                flippedBooleans.add(false);
+            }else {
+                flippedBooleans.add(true);
+            }
         }
-        return null;
+        return flippedBooleans;
     }
-
 }

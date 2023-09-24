@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class OnionTester {
@@ -11,12 +12,20 @@ public class OnionTester {
         System.out.println(testOnion.getInput());
         System.out.println(testOnion.lazyStringMethod(testOnion.getInput()));
         */
-        Scanner scnr = new Scanner(System.in);
-        int testInput = Integer.parseInt(scnr.nextLine());
+        //Scanner scnr = new Scanner(System.in);
+        //int testInput = Integer.parseInt(scnr.nextLine());
 
-        ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(1,0,1,0,1));
+        List<Integer> intList = new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1));   //Creates original Integer Binary List
 
-        System.out.println(testOnion.intToBoolToInt(intList));
+        List<Boolean> boolList = new ArrayList<Boolean>((testOnion.intToBool(intList)));//Convert Integer list to Boolean
 
+        System.out.println(intList);    //Prints Both
+        System.out.println(boolList);
+
+        boolList = testOnion.flip(boolList);    //Flips Boolean values
+        System.out.println(boolList);
+
+        intList = testOnion.boolToInt(boolList);    //Converts back to Integers
+        System.out.println(intList);
     }
 }
