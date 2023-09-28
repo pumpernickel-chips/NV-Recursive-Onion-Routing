@@ -40,13 +40,25 @@ public class OnionRouter {
         return flippedInts;
     }
     public List<Integer> onion(List<Integer> ints) {
-        if(step==length-(2*length)){//update with proper negative syntax!!!!!
+        if(step>=length-(2*length)){//update with proper negative syntax!!!!!
 
-            ints = this.flip(ints);
+        }else if(ints.size()>1 && step>0){
+            trimmedIntList.add(ints.get(0));
+            ints.remove(0);
+            step--;
+            trimmedIntList.add(ints.get(ints.size()-1));
+            ints.remove(ints.size()-1);
+            step--;
+            new OnionRouter(ints, this);
+        }else if(ints.size()>1 && step<0){
+            ints.add(0, (trimmedIntList.get(0)==1? 0 : 1));
+            step--;
+            ints.add((trimmedIntList.get(1)==1? 0 : 1));
+            step--;
+            this.last.onion(ints);
         }else if(ints.size()==1 && step>0){
-            step = step-2;
-        }else if(ints.size()==1 && step<0){
-            step = step-2;
+            ints = new ArrayList<Integer>(Arrays.asList(ints.get(0)==1? 0 : 1));
+            step = -3;
         }
         return ints;
     }
