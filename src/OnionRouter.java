@@ -9,39 +9,17 @@ public class OnionRouter {
     public OnionRouter(){
         this.input = 0123456;
     }
-    public List<Boolean> intToBool(List<Integer> intList) {
-        for (int in: intList) {
-            if (in == 1){
-                boolList.add(true);
-            }else if(in == 0){
-                boolList.add(false);
-            }else{
-                System.out.println("Not Binary unit");
-            }
-        }
-        return boolList;
-    }
-    public List<Integer> boolToInt(List<Boolean> boolList) {
-        for (Boolean bo: boolList) {
-            if (bo){
-                intList.add(1);
-            }else{
-                intList.add(0);
-            }
-        }
-        return intList;
-    }
 
-    public List<Boolean> flip(List<Boolean> boolList){
-        List<Boolean> flippedBooleans = new ArrayList<>();
-        for (Boolean b: boolList) {
-            if (b){
-                flippedBooleans.add(false);
-            }else {
-                flippedBooleans.add(true);
+    public List<Integer> flip(List<Integer> intList){
+        List<Integer> flippedInts = new ArrayList<>();
+        for (Integer i: intList) {
+            if (i == 1){
+                flippedInts.add(0);
+            }else if (i == 0){
+                flippedInts.add(1);
             }
         }
-        return flippedBooleans;
+        return flippedInts;
     }
 
     public List<Integer> trim(List<Integer> intList){

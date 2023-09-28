@@ -47,15 +47,9 @@ public class OnionTester {
             }
         }
 
-        List<Boolean> boolList = new ArrayList<Boolean>((testOnion.intToBool(intList))); //Convert Integer list to Boolean
+        System.out.println(intList);
 
-        System.out.println(intList);    //Prints Both
-        System.out.println(boolList);
-
-        boolList = testOnion.flip(boolList);    //Flips Boolean values
-        System.out.println(boolList);
-
-        intList = testOnion.boolToInt(boolList);    //Converts back to Integers
+        intList = testOnion.flip(intList);
         System.out.println(intList);
 
     }
