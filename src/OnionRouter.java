@@ -1,12 +1,17 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class OnionRouter {
     private List<Integer> intList = new ArrayList<Integer>();
     private List<Integer> trimmedIntList = new ArrayList<Integer>();
-    private int input;
+    private List<Integer> input;
     public OnionRouter(){
-        this.input = 0123456;
+        this(new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1)));
+    }
+    public OnionRouter(List<Integer> input){
+        this.input = input;
+        flip(input);
     }
 
     public List<Integer> flip(List<Integer> intList){
