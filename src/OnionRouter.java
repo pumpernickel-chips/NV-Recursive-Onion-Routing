@@ -1,17 +1,30 @@
+//Naomi Coakley & Victor Serra
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class OnionRouter {
+    private static Integer step;
+    private static Integer length;
     private List<Integer> intList = new ArrayList<Integer>();
     private List<Integer> trimmedIntList = new ArrayList<Integer>();
     private List<Integer> input;
+    private OnionRouter last;
+    //default constructor with 7-digit input
     public OnionRouter(){
         this(new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1)));
     }
+    //complete constructor
     public OnionRouter(List<Integer> input){
         this.input = input;
+        step = input.size();
+        length = step;
         flip(input);
+    }
+    private OnionRouter(List<Integer> input, OnionRouter last){
+        this.input = input;
+        this.last = last;
     }
 
     public List<Integer> flip(List<Integer> intList){
@@ -23,7 +36,19 @@ public class OnionRouter {
                 flippedInts.add(1);
             }
         }
+        new OnionRouter(input, this);
         return flippedInts;
+    }
+    public List<Integer> onion(List<Integer> ints) {
+        if(step==length-(2*length)){//update with proper negative syntax!!!!!
+
+            ints = this.flip(ints);
+        }else if(ints.size()==1 && step>0){
+            step = step-2;
+        }else if(ints.size()==1 && step<0){
+            step = step-2;
+        }
+        return ints;
     }
 
     public List<Integer> trim(List<Integer> intList){
