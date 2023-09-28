@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OnionRouter {
-    private List<Boolean> boolList = new ArrayList<Boolean>();
     private List<Integer> intList = new ArrayList<Integer>();
     private List<Integer> trimmedIntList = new ArrayList<Integer>();
     private int input;
