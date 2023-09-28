@@ -9,15 +9,6 @@ public class OnionRouter {
     public OnionRouter(){
         this.input = 0123456;
     }
-
-    public int lazyStringMethod(int in){
-        return Integer.parseInt((String.valueOf(in)).substring(1,(String.valueOf(in).length()-1)));
-    }
-
-    public int getInput(){
-        return this.input;
-    }
-
     public List<Boolean> intToBool(List<Integer> intList) {
         for (int in: intList) {
             if (in == 1){
