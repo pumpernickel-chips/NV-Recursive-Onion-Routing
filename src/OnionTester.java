@@ -46,7 +46,7 @@ public class OnionTester {
                 waitingForInput = true;
             }
         }
-        /*List<List<Integer>> listLists = new ArrayList<List<Integer>>();
+        List<List<Integer>> listLists = new ArrayList<List<Integer>>();
 
         System.out.println(intList);
 
@@ -56,7 +56,6 @@ public class OnionTester {
             System.out.println(intList);
         }
 
-         */
 
         List<Boolean> boolList = new ArrayList<Boolean>((testOnion.intToBool(intList)));//Convert Integer list to Boolean
 
@@ -70,6 +69,7 @@ public class OnionTester {
         System.out.println(intList);
 
     }
+
     public List<Integer> oddBinaryList(Scanner s) throws IOException {
         List<Integer> list = new ArrayList<Integer>();
             char[] testInput = ("" + s.nextLine()).toCharArray();
