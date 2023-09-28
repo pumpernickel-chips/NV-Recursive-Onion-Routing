@@ -46,18 +46,8 @@ public class OnionTester {
                 waitingForInput = true;
             }
         }
-        List<List<Integer>> listLists = new ArrayList<List<Integer>>();
 
-        System.out.println(intList);
-
-        for(int i = 0; i<intList.size(); i++) {
-            listLists.add(intList);
-            intList = testOnion.trim(intList);
-            System.out.println(intList);
-        }
-
-
-        List<Boolean> boolList = new ArrayList<Boolean>((testOnion.intToBool(intList)));//Convert Integer list to Boolean
+        List<Boolean> boolList = new ArrayList<Boolean>((testOnion.intToBool(intList))); //Convert Integer list to Boolean
 
         System.out.println(intList);    //Prints Both
         System.out.println(boolList);
