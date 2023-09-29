@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OnionRouter {
     private static Integer step;
-    private static Integer length;
+    private static Integer length;//the original length of the input
     private List<Integer> intList = new ArrayList<Integer>();
     private List<Integer> trimmedIntList = new ArrayList<Integer>();
     //private List<Integer> digits;
@@ -28,19 +28,6 @@ public class OnionRouter {
         this.last = last;
         this.onion(input);
     }
-
-    public List<Integer> flip(List<Integer> intList){
-        List<Integer> flippedInts = new ArrayList<>();
-        for (Integer i: intList) {
-            if (i == 1){
-                flippedInts.add(0);
-            }else if (i == 0){
-                flippedInts.add(1);
-            }
-        }
-        OnionRouter next = new OnionRouter(intList, this);
-        return flippedInts;
-    }
     public List<Integer> onion(List<Integer> ints) {
         if(step/length==-1){
             ints.add(0, (trimmedIntList.get(0)==1? 0 : 1));
@@ -54,7 +41,7 @@ public class OnionRouter {
             ints.remove(ints.size()-1);
             step--;
             printDigits(ints);
-            OnionRouter next = new OnionRouter(ints, this);
+            new OnionRouter(ints, this);
         }else if(ints.size()>=1 && step<0){//additive process
             ints.add(0, (trimmedIntList.get(0)==1? 0 : 1));
             step--;
@@ -69,18 +56,6 @@ public class OnionRouter {
             this.last.onion(ints);
         }
         return ints;
-    }
-
-    public List<Integer> trim(List<Integer> intList){
-        intList.remove(intList.size()-1);
-        intList.remove(0);
-        return intList;
-    }
-
-    public List<Integer> addTrim(List<Integer> intList){
-        trimmedIntList.add(intList.get(0));
-        trimmedIntList.add(intList.get(intList.size()-1));
-        return trimmedIntList;
     }
     public void printDigits(List<Integer> list) {
         String digits = "";
