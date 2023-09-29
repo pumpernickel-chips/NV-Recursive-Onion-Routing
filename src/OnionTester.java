@@ -32,25 +32,27 @@ public class OnionTester {
     }
     public static void main(String[] args) throws IOException {
         OnionTester test = new OnionTester();
-        OnionRouter testOnion = new OnionRouter();
         Scanner scnr = new Scanner(System.in);
-        List<Integer> intList = new ArrayList<>();
+        List<Integer> intList = new ArrayList<Integer>();
         boolean waitingForInput = true;
         while(waitingForInput) {
             try {
                 System.out.print("Enter Value: ");
                 intList = test.oddBinaryList(scnr);/*new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1))*/ //Creates original Integer Binary List
                 waitingForInput = false;
+                OnionRouter testOnion = new OnionRouter(intList);
             } catch (IOException e) {
                 System.out.println("Input must be an odd number of binary digits.");
                 waitingForInput = true;
             }
+
         }
 
-        System.out.println(intList);
+        /*System.out.println(intList);
 
         intList = testOnion.flip(intList);
-        System.out.println(intList);
+        System.out.println(intList);*/
+
 
     }
 
@@ -67,7 +69,7 @@ public class OnionTester {
                 }
             }
             if(list.size()%2==0) throw new IOException();
-            System.out.println(testInput);
+            //System.out.println(testInput);
         return list;
     }
 }
