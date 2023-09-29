@@ -9,16 +9,15 @@ public class OnionTester {
         OnionTester test = new OnionTester();
         Scanner scnr = new Scanner(System.in);
         List<Integer> intList = new ArrayList<Integer>();
-        boolean waitingForInput = true;
-        while(waitingForInput) {
+        System.out.println("Enter \"e\" to Exit");
+        while(true) {
             try {
                 System.out.print("Enter Value: ");
-                intList = test.oddBinaryList(scnr);/*new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1))*/ //Creates original Integer Binary List
-                waitingForInput = false;
+                intList = test.oddBinaryList(scnr);/*new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1))*/
+                if(intList.contains(-1)) break;
                 OnionRouter testOnion = new OnionRouter(intList);
             } catch (IOException e) {
-                System.out.println("Input must be an odd number of binary digits.");
-                waitingForInput = true;
+                System.out.println("Input must be an odd number of binary digits. \nEnter \"e\" to Exit");
             }
         }
     }
@@ -30,6 +29,8 @@ public class OnionTester {
                     list.add(0);
                 }else if(c=='1'){
                     list.add(1);
+                }else if(c=='e'){
+                    list.add(-1);
                 }else{
                     throw new IOException();
                 }
