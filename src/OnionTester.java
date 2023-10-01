@@ -8,14 +8,14 @@ public class OnionTester {
     public static void main(String[] args) throws IOException {
         OnionTester test = new OnionTester();
         Scanner scnr = new Scanner(System.in);
-        List<Integer> intList = new ArrayList<Integer>();
+        List<Integer> intList;
         System.out.println("Enter \"e\" to Exit");
         while(true) {
             try {
                 System.out.print("Enter Value: ");
                 intList = test.oddBinaryList(scnr);/*new ArrayList<Integer>(Arrays.asList(1,1,0,1,0,1,1))*/
                 if(intList.contains(-1)) break;
-                OnionRouter testOnion = new OnionRouter(intList);
+                new OnionRouter(intList);
             } catch (IOException e) {
                 System.out.println("Input must be an odd number of binary digits. \nEnter \"e\" to Exit");
             }
