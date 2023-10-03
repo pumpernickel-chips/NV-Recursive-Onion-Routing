@@ -1,8 +1,19 @@
-//Naomi Coakley & Victor Serra
-
+/*
+ * CS208 P2
+ * Naomi Coakley & Victor Serra
+ */
 import java.util.*;
 import java.util.stream.Collectors;
-
+/**
+ * <p>
+ *     Recursive class that reduces a binary number with an odd number of bits (in the form of a {@code List}) to its
+ *     middle bit, flips it, and replaces the outer bits two at a time until the original number is returned with all of
+ *     its bits flipped. The constructor prints the number before and after the {@link #onionLayer} method is called to
+ *     change it, such that each step of the process can be seen on the console in the correct order.
+ *     </p>
+ * @author Naomi Coakley
+ * @author Victor Serra
+ */
 public class OnionRouter {
     private List<Integer> bits;
     /**
@@ -47,8 +58,8 @@ public class OnionRouter {
      * At this point in the recursive sequence, no more {@code OnionRouter} objects will be initialized and the current
      * instance will be the first one in its sequence to break out of this {@code if-else} block and return.
      * </p><p>
-     *     After this, the other instances resume executing the remainder of their methods and constructors in reverse
-     * order, similarly flipping the first and last elements to match the middle element(s) before returning.
+     *     After this, the other instances execute the remainder of their methods and constructors in reverse order,
+     *     flipping the first and last bits similarly to the middle bit(s) and returning a fully flipped {@code input}.
      * </p>
      * @param input a list that containing an odd number of binary digits
      * @throws InputMismatchException if input has an even number of elements when passed to a new {@code OnionRouter}
